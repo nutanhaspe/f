@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Floor Plan for -Kumone</title>
+</head>
+<style>
+area{
+	cursor:pointer;
+	outline:none;}
+#new-1{
+    cursor: pointer;
+	outline:none;
+}
+
+</style>
+<body>
+
+<img src="images/plan-img.jpg" width="600" height="672" usemap="#Map" class=".clasas" border="0" />
+<map name="Map" id="usa_image_map">
+  <area attr-select="0" class="area_click" attr-id="meeting_1" state="TX" shape="poly" coords="89,141,88,191,88,296,95,298,117,298,171,297,246,296,252,294,249,292,204,289,207,270,216,259,229,248,252,242,252,139,244,140,245,135,93,135,95,140" href="#" id="new-1" alt="home-1" />
+  
+  <area attr-select="0" class="area_click" attr-id="meeting_2" state="WE" shape="poly" coords="89,313,88,363,88,468,95,470,117,470,167,467,226,468,245,469,252,464,252,362,232,353,216,343,208,329,207,313,252,311,244,312,245,307,93,307,95,312" href="#" alt="home-2"/>
+</map>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script>
+
+var basic_opts = {
+    mapKey: 'state'
+};
+
+var initial_opts = $.extend({},basic_opts, 
+    { 
+        staticState: true,
+        fill: false,
+        stroke: true,
+    });
+
+$('img').mapster(initial_opts)
+    .mapster('set',true,'CA', {
+        fill: true,
+        fillColor: '00ff00'
+    })
+    .mapster('snapshot')
+    .mapster('rebind',basic_opts);
+
+$( document ).ready( function() {
+
+    $(".area_click").click( function() {
+
+        if( $( this ).attr('attr-select')==0 ) {
+
+          $( this ).attr('attr-select',1);
+
+        }else{
+
+          $( this ).attr('attr-select',0);
+
+        }
+
+    });
+
+});
+</script>
+</body>
+</html>
